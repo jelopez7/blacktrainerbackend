@@ -17,6 +17,7 @@
     "@strapi/provider-upload-cloudinary": "^4.20.2",
     "@strapi/strapi": "4.20.0",
     "mysql": "2.18.1",
+    "mysql2": "^3.9.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
