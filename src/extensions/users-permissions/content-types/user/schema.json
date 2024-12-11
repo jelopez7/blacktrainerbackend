@@ -9,8 +9,7 @@
     "displayName": "User"
   },
   "options": {
-    "draftAndPublish": false,
-    "timestamps": true
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -71,6 +70,26 @@
       "relation": "oneToMany",
       "target": "api::routine.routine",
       "mappedBy": "user"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "birthdate": {
+      "type": "date"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "weight": {
+      "type": "integer"
     }
   }
 }
