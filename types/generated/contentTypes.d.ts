@@ -894,6 +894,8 @@ export interface ApiRoutineRoutine extends Schema.CollectionType {
       'oneToOne',
       'api::type.type'
     >;
+    minutes: Attribute.Integer;
+    weight: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
