@@ -4,7 +4,8 @@
   "info": {
     "singularName": "post-exercise",
     "pluralName": "post-exercises",
-    "displayName": "post_exercise"
+    "displayName": "post_exercise",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -39,54 +40,19 @@
       "type": "integer"
     },
     "photo": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      "type": "string"
     },
     "video": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      "type": "string"
     },
     "preview_video": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      "type": "string"
     },
     "watch_video": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      "type": "string"
     },
     "preview_instruction": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      "type": "string"
     }
   }
 }
