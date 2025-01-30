@@ -908,6 +908,7 @@ export interface ApiPostExercisePostExercise extends Schema.CollectionType {
     singularName: 'post-exercise';
     pluralName: 'post-exercises';
     displayName: 'post_exercise';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -922,11 +923,11 @@ export interface ApiPostExercisePostExercise extends Schema.CollectionType {
     alternative_ids: Attribute.String;
     filter_tag_ids: Attribute.String;
     equipment_type: Attribute.Integer;
-    photo: Attribute.Media;
-    video: Attribute.Media;
-    preview_video: Attribute.Media;
-    watch_video: Attribute.Media;
-    preview_instruction: Attribute.Media;
+    photo: Attribute.String;
+    video: Attribute.String;
+    preview_video: Attribute.String;
+    watch_video: Attribute.String;
+    preview_instruction: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
