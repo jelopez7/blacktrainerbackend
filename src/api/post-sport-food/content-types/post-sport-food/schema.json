@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_sport_foods",
+  "info": {
+    "singularName": "post-sport-food",
+    "pluralName": "post-sport-foods",
+    "displayName": "post_sport_food"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "warning": {
+      "type": "text"
+    },
+    "category_id": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "photo": {
+      "type": "string"
+    }
+  }
+}

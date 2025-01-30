@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_pharmacies",
+  "info": {
+    "singularName": "post-pharmacie",
+    "pluralName": "post-pharmacies",
+    "displayName": "post_pharmacie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "warning": {
+      "type": "text"
+    },
+    "category_id": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "photo": {
+      "type": "string"
+    }
+  }
+}

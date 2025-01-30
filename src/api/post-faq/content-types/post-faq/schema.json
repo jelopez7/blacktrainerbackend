@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_faqs",
+  "info": {
+    "singularName": "post-faq",
+    "pluralName": "post-faqs",
+    "displayName": "post_faq"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category_id": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "warning": {
+      "type": "text"
+    },
+    "warning_html": {
+      "type": "text"
+    },
+    "description_html": {
+      "type": "text"
+    },
+    "photo": {
+      "type": "string"
+    },
+    "background_photo": {
+      "type": "string"
+    }
+  }
+}

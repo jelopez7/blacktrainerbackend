@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "filter_tags",
+  "info": {
+    "singularName": "filter-tag",
+    "pluralName": "filter-tags",
+    "displayName": "filter_tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

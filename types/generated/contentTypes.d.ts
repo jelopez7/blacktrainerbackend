@@ -865,6 +865,37 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
   };
 }
 
+export interface ApiFilterTagFilterTag extends Schema.CollectionType {
+  collectionName: 'filter_tags';
+  info: {
+    singularName: 'filter-tag';
+    pluralName: 'filter-tags';
+    displayName: 'filter_tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    type: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::filter-tag.filter-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::filter-tag.filter-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGroupGroup extends Schema.CollectionType {
   collectionName: 'groups';
   info: {
@@ -939,6 +970,111 @@ export interface ApiPostExercisePostExercise extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::post-exercise.post-exercise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostFaqPostFaq extends Schema.CollectionType {
+  collectionName: 'post_faqs';
+  info: {
+    singularName: 'post-faq';
+    pluralName: 'post-faqs';
+    displayName: 'post_faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    category_id: Attribute.Integer;
+    description: Attribute.Text;
+    warning: Attribute.Text;
+    warning_html: Attribute.Text;
+    description_html: Attribute.Text;
+    photo: Attribute.String;
+    background_photo: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::post-faq.post-faq',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::post-faq.post-faq',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostPharmaciePostPharmacie extends Schema.CollectionType {
+  collectionName: 'post_pharmacies';
+  info: {
+    singularName: 'post-pharmacie';
+    pluralName: 'post-pharmacies';
+    displayName: 'post_pharmacie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    warning: Attribute.Text;
+    category_id: Attribute.Integer;
+    description: Attribute.Text;
+    photo: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::post-pharmacie.post-pharmacie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::post-pharmacie.post-pharmacie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostSportFoodPostSportFood extends Schema.CollectionType {
+  collectionName: 'post_sport_foods';
+  info: {
+    singularName: 'post-sport-food';
+    pluralName: 'post-sport-foods';
+    displayName: 'post_sport_food';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    warning: Attribute.Text;
+    category_id: Attribute.Integer;
+    description: Attribute.Text;
+    photo: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::post-sport-food.post-sport-food',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::post-sport-food.post-sport-food',
       'oneToOne',
       'admin::user'
     > &
@@ -1062,8 +1198,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::categorie.categorie': ApiCategorieCategorie;
       'api::exercise.exercise': ApiExerciseExercise;
+      'api::filter-tag.filter-tag': ApiFilterTagFilterTag;
       'api::group.group': ApiGroupGroup;
       'api::post-exercise.post-exercise': ApiPostExercisePostExercise;
+      'api::post-faq.post-faq': ApiPostFaqPostFaq;
+      'api::post-pharmacie.post-pharmacie': ApiPostPharmaciePostPharmacie;
+      'api::post-sport-food.post-sport-food': ApiPostSportFoodPostSportFood;
       'api::routine.routine': ApiRoutineRoutine;
       'api::tag.tag': ApiTagTag;
       'api::type.type': ApiTypeType;
