@@ -902,6 +902,49 @@ export interface ApiGroupGroup extends Schema.CollectionType {
   };
 }
 
+export interface ApiPostExercisePostExercise extends Schema.CollectionType {
+  collectionName: 'post_exercises';
+  info: {
+    singularName: 'post-exercise';
+    pluralName: 'post-exercises';
+    displayName: 'post_exercise';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    warning: Attribute.Text;
+    category_id: Attribute.Integer;
+    description: Attribute.Text;
+    exercise_type: Attribute.String;
+    execution_order: Attribute.JSON;
+    alternative_ids: Attribute.String;
+    filter_tag_ids: Attribute.String;
+    equipment_type: Attribute.Integer;
+    photo: Attribute.Media;
+    video: Attribute.Media;
+    preview_video: Attribute.Media;
+    watch_video: Attribute.Media;
+    preview_instruction: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::post-exercise.post-exercise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::post-exercise.post-exercise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRoutineRoutine extends Schema.CollectionType {
   collectionName: 'routines';
   info: {
@@ -953,6 +996,29 @@ export interface ApiRoutineRoutine extends Schema.CollectionType {
   };
 }
 
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    tag_type: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTypeType extends Schema.CollectionType {
   collectionName: 'types';
   info: {
@@ -996,7 +1062,9 @@ declare module '@strapi/types' {
       'api::categorie.categorie': ApiCategorieCategorie;
       'api::exercise.exercise': ApiExerciseExercise;
       'api::group.group': ApiGroupGroup;
+      'api::post-exercise.post-exercise': ApiPostExercisePostExercise;
       'api::routine.routine': ApiRoutineRoutine;
+      'api::tag.tag': ApiTagTag;
       'api::type.type': ApiTypeType;
     }
   }

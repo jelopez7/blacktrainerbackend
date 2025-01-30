@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "post_exercises",
+  "info": {
+    "singularName": "post-exercise",
+    "pluralName": "post-exercises",
+    "displayName": "post_exercise"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "warning": {
+      "type": "text"
+    },
+    "category_id": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "exercise_type": {
+      "type": "string"
+    },
+    "execution_order": {
+      "type": "json"
+    },
+    "alternative_ids": {
+      "type": "string"
+    },
+    "filter_tag_ids": {
+      "type": "string"
+    },
+    "equipment_type": {
+      "type": "integer"
+    },
+    "photo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "video": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "preview_video": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "watch_video": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "preview_instruction": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
