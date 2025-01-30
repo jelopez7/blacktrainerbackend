@@ -789,6 +789,41 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategorieCategorie extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'categorie';
+    pluralName: 'categories';
+    displayName: 'categorie';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    post_type: Attribute.String;
+    photo: Attribute.Media;
+    background_photo: Attribute.Media;
+    parent_id: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::categorie.categorie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::categorie.categorie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiExerciseExercise extends Schema.CollectionType {
   collectionName: 'exercises';
   info: {
@@ -808,6 +843,10 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
       'manyToOne',
       'api::group.group'
     >;
+    description: Attribute.Text;
+    instructions: Attribute.JSON;
+    warning: Attribute.JSON;
+    video: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -954,6 +993,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::categorie.categorie': ApiCategorieCategorie;
       'api::exercise.exercise': ApiExerciseExercise;
       'api::group.group': ApiGroupGroup;
       'api::routine.routine': ApiRoutineRoutine;

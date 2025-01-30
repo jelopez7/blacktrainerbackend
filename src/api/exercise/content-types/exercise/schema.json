@@ -32,6 +32,25 @@
       "relation": "manyToOne",
       "target": "api::group.group",
       "inversedBy": "exercises"
+    },
+    "description": {
+      "type": "text"
+    },
+    "instructions": {
+      "type": "json"
+    },
+    "warning": {
+      "type": "json"
+    },
+    "video": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
