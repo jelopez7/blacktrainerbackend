@@ -15,12 +15,6 @@
     "group": {
       "type": "string"
     },
-    "exercises": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::exercise.exercise",
-      "mappedBy": "group"
-    },
     "image": {
       "type": "media",
       "multiple": true,

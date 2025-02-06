@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "completed_sets",
+  "info": {
+    "singularName": "completed-set",
+    "pluralName": "completed-sets",
+    "displayName": "completed_set"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "exercise_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::exercise.exercise"
+    },
+    "repeats": {
+      "type": "integer"
+    },
+    "value": {
+      "type": "decimal"
+    },
+    "value_type": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "post_exercise_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::post-exercise.post-exercise"
+    },
+    "course_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course.course"
+    }
+  }
+}

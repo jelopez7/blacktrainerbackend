@@ -12,45 +12,48 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": false
-    },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "group": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::group.group",
-      "inversedBy": "exercises"
-    },
-    "description": {
+    "comment": {
       "type": "text"
     },
-    "instructions": {
+    "training_day_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::training-day.training-day"
+    },
+    "post_exercise_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::post-exercise.post-exercise"
+    },
+    "weight_type": {
+      "type": "string"
+    },
+    "recommended_repeats": {
+      "type": "integer"
+    },
+    "recommended_sets": {
+      "type": "integer"
+    },
+    "position": {
+      "type": "integer"
+    },
+    "recommended_weight_value": {
+      "type": "decimal"
+    },
+    "rest_time": {
+      "type": "integer"
+    },
+    "handbook_type": {
+      "type": "string"
+    },
+    "set_type": {
+      "type": "string"
+    },
+    "heart_rate": {
       "type": "json"
     },
-    "warning": {
-      "type": "json"
-    },
-    "video": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
+    "duration": {
+      "type": "integer"
     }
   }
 }

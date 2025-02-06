@@ -805,7 +805,7 @@ export interface ApiCategorieCategorie extends Schema.CollectionType {
     post_type: Attribute.String;
     photo: Attribute.Media;
     background_photo: Attribute.Media;
-    parent_id: Attribute.Integer;
+    parent_id: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -817,6 +817,93 @@ export interface ApiCategorieCategorie extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::categorie.categorie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCompletedSetCompletedSet extends Schema.CollectionType {
+  collectionName: 'completed_sets';
+  info: {
+    singularName: 'completed-set';
+    pluralName: 'completed-sets';
+    displayName: 'completed_set';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    exercise_id: Attribute.Relation<
+      'api::completed-set.completed-set',
+      'oneToOne',
+      'api::exercise.exercise'
+    >;
+    repeats: Attribute.Integer;
+    value: Attribute.Decimal;
+    value_type: Attribute.Integer;
+    comment: Attribute.Text;
+    post_exercise_id: Attribute.Relation<
+      'api::completed-set.completed-set',
+      'oneToOne',
+      'api::post-exercise.post-exercise'
+    >;
+    course_id: Attribute.Relation<
+      'api::completed-set.completed-set',
+      'oneToOne',
+      'api::course.course'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::completed-set.completed-set',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::completed-set.completed-set',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCourseCourse extends Schema.CollectionType {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    training_for: Attribute.String;
+    gender: Attribute.String;
+    frequency: Attribute.String;
+    categories: Attribute.JSON;
+    contents: Attribute.JSON;
+    photo: Attribute.Media;
+    level: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course.course',
       'oneToOne',
       'admin::user'
     > &
@@ -836,17 +923,27 @@ export interface ApiExerciseExercise extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    image: Attribute.Media;
-    group: Attribute.Relation<
+    comment: Attribute.Text;
+    training_day_id: Attribute.Relation<
       'api::exercise.exercise',
-      'manyToOne',
-      'api::group.group'
+      'oneToOne',
+      'api::training-day.training-day'
     >;
-    description: Attribute.Text;
-    instructions: Attribute.JSON;
-    warning: Attribute.JSON;
-    video: Attribute.Media;
+    post_exercise_id: Attribute.Relation<
+      'api::exercise.exercise',
+      'oneToOne',
+      'api::post-exercise.post-exercise'
+    >;
+    weight_type: Attribute.String;
+    recommended_repeats: Attribute.Integer;
+    recommended_sets: Attribute.Integer;
+    position: Attribute.Integer;
+    recommended_weight_value: Attribute.Decimal;
+    rest_time: Attribute.Integer;
+    handbook_type: Attribute.String;
+    set_type: Attribute.String;
+    heart_rate: Attribute.JSON;
+    duration: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -909,11 +1006,6 @@ export interface ApiGroupGroup extends Schema.CollectionType {
   };
   attributes: {
     group: Attribute.String;
-    exercises: Attribute.Relation<
-      'api::group.group',
-      'oneToMany',
-      'api::exercise.exercise'
-    >;
     image: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1095,11 +1187,6 @@ export interface ApiRoutineRoutine extends Schema.CollectionType {
   };
   attributes: {
     description: Attribute.String;
-    exercise: Attribute.Relation<
-      'api::routine.routine',
-      'oneToOne',
-      'api::exercise.exercise'
-    >;
     user: Attribute.Relation<
       'api::routine.routine',
       'manyToOne',
@@ -1156,6 +1243,44 @@ export interface ApiTagTag extends Schema.CollectionType {
   };
 }
 
+export interface ApiTrainingDayTrainingDay extends Schema.CollectionType {
+  collectionName: 'training_days';
+  info: {
+    singularName: 'training-day';
+    pluralName: 'training-days';
+    displayName: 'training_day';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    course_id: Attribute.Relation<
+      'api::training-day.training-day',
+      'oneToOne',
+      'api::course.course'
+    >;
+    title: Attribute.String;
+    percentage: Attribute.Integer;
+    position: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::training-day.training-day',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::training-day.training-day',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTypeType extends Schema.CollectionType {
   collectionName: 'types';
   info: {
@@ -1197,6 +1322,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::categorie.categorie': ApiCategorieCategorie;
+      'api::completed-set.completed-set': ApiCompletedSetCompletedSet;
+      'api::course.course': ApiCourseCourse;
       'api::exercise.exercise': ApiExerciseExercise;
       'api::filter-tag.filter-tag': ApiFilterTagFilterTag;
       'api::group.group': ApiGroupGroup;
@@ -1206,6 +1333,7 @@ declare module '@strapi/types' {
       'api::post-sport-food.post-sport-food': ApiPostSportFoodPostSportFood;
       'api::routine.routine': ApiRoutineRoutine;
       'api::tag.tag': ApiTagTag;
+      'api::training-day.training-day': ApiTrainingDayTrainingDay;
       'api::type.type': ApiTypeType;
     }
   }

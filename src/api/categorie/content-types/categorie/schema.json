@@ -41,7 +41,7 @@
       ]
     },
     "parent_id": {
-      "type": "integer"
+      "type": "string"
     }
   }
 }

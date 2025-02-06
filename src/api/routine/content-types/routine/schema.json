@@ -15,11 +15,6 @@
     "description": {
       "type": "string"
     },
-    "exercise": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::exercise.exercise"
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",

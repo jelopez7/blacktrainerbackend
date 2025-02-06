@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "training_days",
+  "info": {
+    "singularName": "training-day",
+    "pluralName": "training-days",
+    "displayName": "training_day",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "course_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course.course"
+    },
+    "title": {
+      "type": "string"
+    },
+    "percentage": {
+      "type": "integer"
+    },
+    "position": {
+      "type": "integer"
+    }
+  }
+}

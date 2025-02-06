@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "training_for": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "json"
+    },
+    "contents": {
+      "type": "json"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "level": {
+      "type": "integer"
+    }
+  }
+}
